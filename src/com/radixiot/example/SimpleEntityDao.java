@@ -88,6 +88,7 @@ public class SimpleEntityDao {
 
     protected Record toRecord(SimpleEntityVO vo) {
         Record record = table.newRecord();
+        record.set(table.name, vo.getName());
         record.set(table.xid, vo.getXid());
         record.set(table.enabled, boolToChar(vo.isEnabled()));
         return record;
@@ -95,6 +96,7 @@ public class SimpleEntityDao {
 
     protected SimpleEntityVO mapRecord(Record record) {
         SimpleEntityVO vo = new SimpleEntityVO();
+        vo.setName(record.get(table.name));
         vo.setId(record.get(table.id));
         vo.setXid(record.get(table.xid));
         vo.setEnabled(charToBool(record.get(table.enabled)));

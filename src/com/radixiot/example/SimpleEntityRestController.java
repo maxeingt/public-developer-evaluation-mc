@@ -67,8 +67,8 @@ public class SimpleEntityRestController {
         return newEntity;
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, value="/simple-entities/{identifier}")
-    void delete(@PathVariable int id) {
-        service.delete(id);
+    @RequestMapping(method = RequestMethod.DELETE, value="/simple-entities/{id}")
+    boolean delete(@PathVariable int id) {
+        return service.delete(id);
     }
 }
